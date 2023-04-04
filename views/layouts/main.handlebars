@@ -4,21 +4,31 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Music to My Ears</title>
+  <title>Coding Spree</title>
   <link rel="stylesheet" href="/css/jass.css">
 </head>
 
 <body>
-  <header>
-    <h1>Testing</h1>
+  <header class="display-flex justify-space-between align-center p-2">
+    <h1>
+      Ready, Set, Code .... 
+    </h1>
+    <!-- TODO: Add a comment describing the functionality of this helper -->
+    {{!-- If the user's logged in status is true then a button will be rendered to allow them to logoout --}}
+    {{#if logged_in}}
+    <nav>
+      <button class="btn" id="logout">logout</button>
+    </nav>
+    {{/if}}
   </header>
-
-  <main>
+  <main class="container container-fluid mt-5">
+    {{{ body }}}
   </main>
-
-  <footer>   
+  <footer>
+      
   </footer>
 
+  <!-- TODO: Add a comment describing the functionality of this helper -->
   {{!-- connects the FE js to allow the logout button  that's rendered to have functionality  --}}
   {{#if logged_in}}
   <script src="/js/logout.js"></script>
