@@ -9,30 +9,37 @@
 </head>
 
 <body>
-  <header class="display-flex justify-space-between align-center p-2">
-    <h1>
+  <header>
+    <h1 id="titleText">
       Ready, Set, Code .... 
     </h1>
-    <!-- TODO: Add a comment describing the functionality of this helper -->
-    {{!-- If the user's logged in status is true then a button will be rendered to allow them to logoout --}}
+
+    {{#unless logged_in}}
+    <nav>
+      <a href="/"><button class="btn" id="goToHome">HOMEPAGE</button></a>
+      <a href="/dash"></a><button class="btn" id="goToDash">DASHBOARD</button></a>
+      <a href="/login"><button class="btn" id="loginbtn">LOGIN</button></a>
+    </nav>
+    {{/unless}}
+
     {{#if logged_in}}
     <nav>
-      <button class="btn" id="logout">logout</button>
+      <a href="/"><button class="btn" id="goToHome">HOMEPAGE</button></a>
+      <a href="/dash"></a><button class="btn" id="goToDash">DASHBOARD</button></a>
+      <button class="btn" id="logoutbtn">LOGOUT</button>
     </nav>
     {{/if}}
-  </header>
-  <main class="container container-fluid mt-5">
-    {{{ body }}}
-  </main>
-  <footer>
-      
-  </footer>
 
-  <!-- TODO: Add a comment describing the functionality of this helper -->
-  {{!-- connects the FE js to allow the logout button  that's rendered to have functionality  --}}
+  </header>
+  <main class="content_box">
+    {{{ body }}}
+
+  </main>
   {{#if logged_in}}
   <script src="/js/logout.js"></script>
   {{/if}}
+  <script src="/js/index.js"></script>
+  
 </body>
 
 </html>

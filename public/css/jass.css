@@ -1,0 +1,84 @@
+*{
+    background-color: transparent;
+}
+
+html {
+    background-color: skyblue;
+}
+
+.btn {
+    margin-top: 7px;
+    height: 80%;
+    width: 85px;
+    border: 2px solid black;
+    border-radius: 15px;
+    background-color: plum;
+    margin-right: 7px;
+}
+
+#titleText {
+    width: 70%;
+    margin-bottom: 15px;
+    padding-left: 25px;
+    color: plum;
+}
+
+nav {
+    display: flex;
+    justify-content: flex-end;
+    width: 29%;
+}
+
+header {
+    margin: 0;
+    padding: 0;
+    background-color: purple;
+    height: 10vh;
+    display: flex;
+}
+
+.content_box {
+    display: flex;
+    flex-direction: column;
+    width: 85%;
+    margin: 25px auto;
+}
+
+.newPost {
+    border: 5px solid purple;
+    background-color: plum;
+    width: 90%;
+    margin: 10px auto;
+}
+
+.postTitle {
+    text-align: center;
+    font-style: oblique;
+    background-color: purple;
+    margin-left: 0;
+    width: 45%;
+    color: plum;
+
+}
+
+.postContent {
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.login-form {
+    margin-left: 50px; 
+}
+
+.btn2 {
+    background-color: plum;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.btn3 {
+    background-color: purple;
+    color: plum;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
