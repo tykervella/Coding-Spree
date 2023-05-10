@@ -1,12 +1,34 @@
 const router = require('express').Router();
-const { User, Post } = require('../models');
+const { User, Post, Comment } = require('../models');
 const withAuth = require('../utils/auth');
 
-// withAuth middleware is called to check if logged_in returns true for the current session before performing the get request 
 router.get('/', async (req, res) => {
   try {
-    const postData = await Post.findAll();
+    // finds all posts within our database and maps an array with their info 
+    const postData = await Post.findAll({
+      include: [{ model: User, attributes: ['name'] }]
+    });
+    const posts = postData.map((post) => post.get({ plain: true }));
 
+    // renders said posts on homepage and
+    res.render('homepage', {
+      posts,
+      // Pass the logged in flag to the template
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+
+// withAuth middleware is called to check if logged_in returns true for the current session before performing the get request 
+router.get('/dash', withAuth, async (req, res) => {
+  try {
+    const postData = await Post.findAll({
+      where: { user_id: req.session.user_id },
+  
+    });
     const posts = postData.map((post) => post.get({ plain: true }));
 
     res.render('homepage', {
@@ -19,14 +41,25 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.get('/dash', async (req, res) => {
+router.get('/posts/:id', withAuth, async (req, res) => {
   try {
-    const userData = await User.findByPk(logged_in.id);
+    // gets all comments for a post with specifed id 
+    const postData = await Post.findByPk(req.params.id, {
+      include: [{ model: User, attributes: ['name'] }]
+    });
+    const post = postData.get({ plain: true });
 
-    const posts = postData.map((post) => post.get({ plain: true }));
+    const commentData = await Comment.findAll({
+      where: { post_id: req.params.id},
+      include: [{ model: User, attributes: ['name'] }]
+    });
 
-    res.render('homepage', {
-      posts,
+    const comments = commentData.map((comment) => comment.get({ plain: true }));
+
+    
+
+    res.render('post', {
+      post, comments,
       // Pass the logged in flag to the template
       logged_in: req.session.logged_in,
     });

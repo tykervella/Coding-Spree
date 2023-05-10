@@ -1,0 +1,30 @@
+<div class="newPost">
+  <div class="postTitle">
+    <h2>{{post.title}}</h2>
+  </div>
+  <div class="postContent">
+    <p>{{post.content}}</p>
+    <small> Post created on {{formatDate post.createdAt}} by {{post.user.name}}</small>
+  </div>
+
+
+<div class="postTitle">
+  <h2>Comments:</h2>
+</div>
+
+{{#each comments as |comment| }}
+<div class="postContent">
+  <p>{{comment.content}}</p>
+    <small> Comment by {{comment.user.name}}</small>
+</div>
+
+{{/each}}
+
+</div>
+
+<div class="newPost">
+  <div class="postTitle">
+    <h2>Add a comment!</h2>
+  </div>
+</div>
+
