@@ -14,8 +14,13 @@ const loginFormHandler = async (event) => {
       headers: { 'Content-Type': 'application/json' },
     });
 
+    // if response ok, gets user_id to save in session storage and sends user back to their dash
     if (response.ok) {
-      document.location.replace('/');
+      const userData = await response.json();
+      const user_id = userData.user.id
+
+      sessionStorage.setItem('user_id', user_id);
+      document.location.replace('/dash');
     } else {
       alert('Failed to log in');
     }

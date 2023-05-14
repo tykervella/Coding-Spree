@@ -14,7 +14,9 @@ html {
     border-radius: 15px;
     background-color: plum;
     margin-right: 7px;
+    
 }
+
 
 #titleText {
     width: 70%;
@@ -73,9 +75,17 @@ header {
 .postContent {
     margin-left: 50px;
     margin-right: 50px;
-    border: 5px solid purple; 
+    border: 3px solid purple; 
     background-color: whitesmoke; 
     margin-bottom: 10px;
+}
+
+.commentbox {
+    background-color: whitesmoke;
+    width: 80%;
+    height: 100px;
+    margin-left: 5%;
+    border: 3px solid purple; 
 }
 
 .login-form {
@@ -94,3 +104,8 @@ header {
     margin-top: 10px;
     margin-bottom: 10px;
 }
+
+button:hover {
+    background-color: skyblue;
+     
+ }

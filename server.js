@@ -17,7 +17,10 @@ const hbs = exphbs.create({ helpers });
 // create a unique session stored in the db that isn't permanently saved to act as user session 
 const sess = {
   secret: 'Super secret secret',
-  cookie: {},
+  cookie: {
+    /// sets the session to only last one hour before ending
+    maxAge: 3600000
+  },
   resave: false,
   saveUninitialized: true,
   store: new SequelizeStore({
