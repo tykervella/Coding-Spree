@@ -53,6 +53,17 @@ header {
     margin: 10px auto;
 }
 
+.dashHeader {
+    font-style: bold;
+    width: 90%;
+    margin: 10px auto;
+}
+
+.dashHeader h2 {
+    font-size: x-large;
+    color: royalblue;
+}
+
 .postTitle {
     text-align: center;
     font-style: oblique;
@@ -60,15 +71,6 @@ header {
     margin-left: 0;
     width: 45%;
     color: plum;
-
-}
-
-.postbtn {
-    background-color: purple;
-    color: whitesmoke;
-    margin-bottom: 10px;
-    margin-top: 10px;
-    margin-left: 25px;
 
 }
 
@@ -88,9 +90,10 @@ header {
     border: 3px solid purple; 
 }
 
-.login-form {
+.login-form, .sign-up, .signup-form {
     margin-left: 50px; 
 }
+
 
 .btn2 {
     background-color: plum;
@@ -98,14 +101,11 @@ header {
     margin-bottom: 10px;
 }
 
-.btn3 {
-    background-color: purple;
-    color: plum;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
 
 button:hover {
     background-color: skyblue;
-     
+ }
+
+ .btn2:hover {
+    background-color: purple;
  }

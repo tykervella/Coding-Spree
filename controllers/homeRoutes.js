@@ -27,11 +27,11 @@ router.get('/dash', withAuth, async (req, res) => {
   try {
     const postData = await Post.findAll({
       where: { user_id: req.session.user_id },
-  
+      include: [{ model: User, attributes: ['name'] }]
     });
     const posts = postData.map((post) => post.get({ plain: true }));
 
-    res.render('homepage', {
+    res.render('dash', {
       posts,
       // Pass the logged in flag to the template
       logged_in: req.session.logged_in,
@@ -77,6 +77,17 @@ router.get('/login', (req, res) => {
   }
   // otherwise the login handlebar is rendered 
   res.render('login');
+});
+
+router.get('/signup', async (req, res) => {
+  // if user is already logged in for this session, redirect them to the homepage 
+  if (req.session.logged_in) {
+    res.redirect('/');
+    return;
+  }
+  // otherwise the signup handlebar is rendered
+  res.render('signup');
+  
 });
 
 module.exports = router;
