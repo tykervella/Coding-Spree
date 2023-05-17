@@ -11,10 +11,14 @@
     <p>{{post.content}}</p>
     <small> Post created on {{formatDate post.createdAt}} by {{post.user.name}}</small>
   </div>
-  <a href="/posts/{{post.id}}"><button class="btn2">Go To Post</button></a><button class="editbtn" data="{{post.id}}">Edit Post</button><button class="deletebtn" data="{{post.id}}">Delete Post</button>
+  <a href="/posts/{{post.id}}"><button class="btn2">Go To Post</button></a>
+  <button class="editbtn btn2" data="{{post.id}}">Edit Post</button>
+  <button class="deletebtn btn2" data="{{post.id}}">Delete Post</button>
 </div>
 {{/each}}
 
-<div class="dashHeader">
-<a href="/createpost"><button class="newpostbtn btn2">Create New Post</button></a>
+<div class="dashbox">
+<a href="/createpost"><button class="btn3">Create New Post</button></a>
 </div>
+
+<script src="/js/dash.js"></script>

@@ -68,6 +68,29 @@ router.get('/posts/:id', withAuth, async (req, res) => {
   }
 });
 
+router.get('/posts/edit/:id', withAuth, async (req, res) => {
+  try {
+    const postData = await Post.findByPk(req.params.id, {
+      include: [{ model: User, attributes: ['name'] }]
+    });
+    const post = postData.get({ plain: true });
+    
+
+    res.render('editpost', {
+      post,
+      // Pass the logged in flag to the template
+      logged_in: req.session.logged_in,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+
+router.get('/createpost', withAuth, (req, res) => {
+  res.render('createpost');
+});
+
 
 router.get('/login', (req, res) => {
   // if user is already logged in for this session, redirect them to the homepage 

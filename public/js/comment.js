@@ -30,6 +30,8 @@ postForm.addEventListener('submit', (event) => {
     }
     // if the comment was successfully posted, clear the comment box
     commentBox.value = '';
+    location.reload();
+
   })
   .catch(error => {
     console.error('Error posting comment:', error);

@@ -16,12 +16,14 @@ Comment.init(
       allowNull: false,
     },
     post_id: {
-        type: DataTypes.INTEGER,
-        references: {
-          model: 'post',
-          key: 'id',
-        },
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'post',
+        key: 'id',
+        onDelete: 'CASCADE', // Add this line to set the deletion behavior
+        onUpdate: 'CASCADE', // Add this line to set the update behavior
       },
+    },
     user_id: {
       type: DataTypes.INTEGER,
       references: {
