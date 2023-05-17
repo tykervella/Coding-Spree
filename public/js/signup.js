@@ -8,11 +8,14 @@ const signupFormHandler = async (event) => {
     const password = document.querySelector('#password-signup').value.trim();
     const password_check = document.querySelector('#password-check').value.trim();
   
+    // checks to make sure all fields are entered 
     if (!email || !name || !password || !password_check) {
         alert('Please enter all fields.')
     } else {
+        // checks that the two password fields match 
         if (password === password_check) {
 
+            // posts user data and creates new user
         const response = await fetch('/api/users', {
             method: 'POST',
             body: JSON.stringify({ email, name, password }),

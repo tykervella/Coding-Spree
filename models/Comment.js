@@ -20,8 +20,6 @@ Comment.init(
       references: {
         model: 'post',
         key: 'id',
-        onDelete: 'CASCADE', // Add this line to set the deletion behavior
-        onUpdate: 'CASCADE', // Add this line to set the update behavior
       },
     },
     user_id: {

@@ -14,7 +14,7 @@ postForm.addEventListener('submit', (event) => {
   // retrieve the comment content from the comment box
   const commentContent = commentBox.value;
 
-  // send the comment data to the server (replace URL with your API endpoint)
+  // send the comment data to the server
   fetch('/api/comments', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },

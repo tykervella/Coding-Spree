@@ -1,9 +1,8 @@
 
-
-document.addEventListener('DOMContentLoaded', () => {
+// makes constants for delete and edit buttons on dash
     const deletebtn = document.querySelector('.deletebtn')
     const editbtn = document.querySelector('.editbtn')
-  
+  // redirects user to edit page
     editbtn.addEventListener("click", async function(event) {
         event.preventDefault()
   
@@ -11,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.location.replace(`/posts/edit/${postId}`)
     })
   
+    // calls the delete method on the post using the data attribute to get the post ID
     deletebtn.addEventListener("click", async function(event) {
         event.preventDefault();
         const postId = deletebtn.getAttribute("data");
@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
       
           if (response.ok) {
             const data = await response.json();
-            console.log(data.message); // or display the message in the UI
+            console.log(data.message); /
             document.location.reload();
 
           } else {
@@ -33,5 +33,4 @@ document.addEventListener('DOMContentLoaded', () => {
           console.error('Error:', err);
         }
       });
-  })
   
